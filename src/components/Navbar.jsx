@@ -1,115 +1,86 @@
 import React from "react";
-import {
-  Navbar,
-  Collapse,
-  Typography,
-  IconButton
-} from "@material-tailwind/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-function NavList() {
+const Navbar = () => {
   return (
-    <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <a
-          href="#"
-          className="flex items-center hover:text-blue-500 transition-colors"
-        >
-          Pages
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <a
-          href="#"
-          className="flex items-center hover:text-blue-500 transition-colors"
-        >
-          Account
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <a
-          href="#"
-          className="flex items-center hover:text-blue-500 transition-colors"
-        >
-          Blocks
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <a
-          href="#"
-          className="flex items-center hover:text-blue-500 transition-colors"
-        >
-          Docs
-        </a>
-      </Typography>
-    </ul>
-  );
-}
-
-export function NavbarSimple() {
-  const [openNav, setOpenNav] = React.useState(false);
-
-  const handleWindowResize = () =>
-    window.innerWidth >= 960 && setOpenNav(false);
-
-  React.useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
-
-  return (
-    <Navbar className="mx-auto max-w-screen-xl px-6 py-3">
-      <div className="flex items-center justify-between text-blue-gray-900">
-        <Typography
-          as="a"
-          href="#"
-          variant="h6"
-          className="mr-4 cursor-pointer py-1.5"
-        >
-          Material Tailwind
-        </Typography>
-        <div className="hidden lg:block">
-          <NavList />
+    <div className="navbar bg-[#01015F]">
+      <div className="navbar-start w-10/12">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-[#01015F] rounded-box z-[1] mt-3 w-52 p-2 shadow"
+          >
+            <li>
+              <a href="/home">Home</a>
+            </li>
+            <li>
+              <a href="/dashboard">Dashboard</a>
+            </li>
+          </ul>
         </div>
-        <IconButton
-          variant="text"
-          className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-          ripple={false}
-          onClick={() => setOpenNav(!openNav)}
-        >
-          {openNav ? (
-            <XMarkIcon className="h-6 w-6" strokeWidth={2} />
-          ) : (
-            <Bars3Icon className="h-6 w-6" strokeWidth={2} />
-          )}
-        </IconButton>
+        <a className="btn btn-ghost text-3xl">DILIMAN</a>
+
+        <div className="ml-auto navbar-start hidden lg:flex w-9/12">
+          <ul className="menu menu-horizontal px-1 w-full">
+            <li>
+              <a href="/home">Home</a>
+            </li>
+            <li>
+              <a href="/dashboard">Dashboard</a>
+            </li>
+          </ul>
+        </div>
+
       </div>
-      <Collapse open={openNav}>
-        <NavList />
-      </Collapse>
-    </Navbar>
+
+      <div className="w-fit dropdown dropdown-end ml-auto">
+        <div
+          tabIndex={0}
+          role="button"
+          className="btn btn-ghost btn-circle avatar"
+        >
+          <div className="w-10 rounded-full">
+            <img
+              alt="Tailwind CSS Navbar component"
+              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+            />
+          </div>
+        </div>
+        <ul
+          tabIndex={0}
+          className="menu menu-sm dropdown-content bg-[#01015F] rounded-box z-[1] mt-3 w-52 p-2 shadow"
+        >
+          <li>
+            <a className="justify-between">
+              Profile
+              {/* <span className="badge">New</span> */}
+            </a>
+          </li>
+          <li>
+            <a>Settings</a>
+          </li>
+          <li>
+            <a>Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
-}
+};
+
+export default Navbar;
