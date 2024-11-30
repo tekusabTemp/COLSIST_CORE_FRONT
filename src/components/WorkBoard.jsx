@@ -1,9 +1,7 @@
 import React from "react";
 
 const WorkBoard = (props) => {
-  const { steps } = props;
-
-  return <></>;
+  return <>Hi There</>;
 };
 
 export default WorkBoard;
