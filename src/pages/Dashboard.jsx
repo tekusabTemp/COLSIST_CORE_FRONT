@@ -1,6 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Dashboard = () => {
+  const [time, setTime] = useState({
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+    ampm: "AM"
+  });
+
+  const updateTime = () => {
+    const now = new Date(); // Get the current time
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    // Convert to 12-hour format and determine AM/PM
+    const ampm = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 || 12; // Convert 0 to 12 for 12-hour format
+    const formattedMinutes = minutes.toString().padStart(2, "0");
+    const formattedSeconds = seconds.toString().padStart(2, "0");
+
+    // Update state
+    setTime({
+      hours: formattedHours.toString().padStart(2, "0"),
+      minutes: formattedMinutes,
+      seconds: formattedSeconds,
+      ampm: ampm
+    });
+  };
+
+  useEffect(() => {
+    updateTime(); // Initialize the time
+    const interval = setInterval(updateTime, 1000); // Update every second
+
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, []);
   // State to track whether the right column is visible or not
   const [isRightColumnVisible, setIsRightColumnVisible] = useState(true);
 
@@ -212,9 +246,15 @@ const Dashboard = () => {
         </div>
 
         <div className="bg-gray-800 rounded-t-2xl rounded-b-none p-2  flex flex-col">
-          <span className="text-center text-white text-2xl font-bold">
-            12:00 PM
-          </span>
+          <div className="text-center text-white text-2xl font-bold">
+            <span className="countdown font-mono text-2xl">
+              <span style={{ "--value": time.hours }}>{time.hours}</span>:
+              <span style={{ "--value": time.minutes }}>{time.minutes}</span>:
+              <span style={{ "--value": time.seconds }}>{time.seconds}</span>
+              &nbsp;
+              {time.ampm}
+            </span>
+          </div>
           <span className="text-center text-white text-lg font-bold">
             2024-12-01 | Sun
           </span>
