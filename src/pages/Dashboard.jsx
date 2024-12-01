@@ -171,11 +171,11 @@ const Dashboard = () => {
         <div
           className={`${
             isRightColumnVisible ? "hidden" : "flex "
-          } justify-end mb-2 absolute top-2 right-0 translate-x-1/2`}
+          } justify-end mb-2 absolute top-2 right-0 `}
         >
           <button
             onClick={toggleRightColumn}
-            className="bg-gray-800 text-white p-2 rounded-full h-[40px] w-[40px] mg:hidden flex justify-start"
+            className="bg-gray-800 text-white rounded-e-none rounded-s-full h-[40px] w-[30px] mg:hidden flex justify-center items-center"
           >
             {isRightColumnVisible ? ">" : "<"}
           </button>
