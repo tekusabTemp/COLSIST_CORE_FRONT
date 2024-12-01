@@ -164,18 +164,20 @@ const Dashboard = () => {
       </div>
 
       {/* Middle Column (75% or 100% when right column is hidden) */}
-      <div className={` bg-[#e1e7ed] p-4 flex-grow flex flex-col`}>
+      <div
+        className={` bg-[#e1e7ed] p-4 flex-grow flex flex-col relative overflow-hidden`}
+      >
         {/* toggle button */}
         <div
           className={`${
             isRightColumnVisible ? "hidden" : "flex "
-          } justify-end mb-2`}
+          } justify-end mb-2 absolute top-2 right-0 translate-x-1/2`}
         >
           <button
             onClick={toggleRightColumn}
-            className="bg-[#1A1F7D] text-white p-2 rounded-md mg:hidden"
+            className="bg-gray-800 text-white p-2 rounded-full h-[40px] w-[40px] mg:hidden flex justify-start"
           >
-            {isRightColumnVisible ? "Hide" : "Show"}
+            {isRightColumnVisible ? ">" : "<"}
           </button>
         </div>
 
@@ -199,18 +201,18 @@ const Dashboard = () => {
       <div
         className={`w-[250px] bg-[#1A1F7D] px-4 pt-3 flex flex-col gap-2 ${
           isRightColumnVisible ? "block" : "hidden"
-        } block`}
+        } block relative`}
       >
+        <div className="flex justify-center items-center rounded-full bg-gray-800 w-[40px] h-[40px] absolute top-2 left-0 -translate-x-1/2 z-20">
+          <button
+            onClick={toggleRightColumn}
+            className=" text-white p-2 rounded-md mg:hidden"
+          >
+            {isRightColumnVisible ? ">" : "<"}
+          </button>
+        </div>
         {/* Top part */}
-        <div className="flex-grow flex flex-col gap-2">
-          <div className="flex justify-end">
-            <button
-              onClick={toggleRightColumn}
-              className=" text-white p-2 rounded-md mg:hidden"
-            >
-              {isRightColumnVisible ? "Hide" : "Show"}
-            </button>
-          </div>
+        <div className="flex-grow flex flex-col gap-2 ">
           <details className="collapse bg-base-200 text-sm" open>
             <summary className="collapse-title text-lg font-medium">
               Progress
