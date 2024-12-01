@@ -1,6 +1,15 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+  const excludedPaths = ["/register", "/login"];
+
+  // Check if the current path is in the excluded paths
+  if (excludedPaths.includes(location.pathname)) {
+    return null;
+  }
+
   return (
     <div className="navbar bg-[#01015F]">
       <div className="navbar-start w-10/12">
@@ -45,7 +54,6 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-
       </div>
 
       <div className="w-fit dropdown dropdown-end ml-auto">

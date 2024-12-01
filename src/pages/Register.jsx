@@ -2,9 +2,8 @@ import logo from "../images/logo.jpg";
 
 export default function Register() {
   return (
-    <div className="flex flex-row min-h-[calc(100vh_-_60px)]">
+    <div className="flex flex-row min-h-screen">
       <div className="flex w-full justify-center">
-
         <div className="min-h-full w-1/2 pb-10 flex flex-col justify-center items-center flex-grow ml-[4em]">
           <h2 className="text-white font-bold text-2xl mb-8 text-center">
             LIFE INFORMATION INNOVATION KNOWLEDGE
@@ -22,9 +21,7 @@ export default function Register() {
           style={{ clipPath: "polygon(100% 100%, 0% 100%, 50% 50%, 100% 0%)" }}
         ></div>
 
-
         <div className="min-h-full w-1/2 bg-[#1A1F7D] flex flex-col pb-10 px-8">
-
           <div className="p-7 flex gap-4">
             <img
               src={logo}
@@ -109,13 +106,8 @@ export default function Register() {
               Already have an account?
             </a>
           </div>
-
         </div>
-
-       
-
       </div>
-
     </div>
   );
 }

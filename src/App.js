@@ -14,7 +14,7 @@ function App() {
     <Router>
       <NavBar />
       <div
-        className="bg-sky-200 min-h-[calc(100vh_-_60px)]"
+        className="bg-sky-200 min-h-screen"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${coverPage})`,
           backgroundSize: "cover",
@@ -22,7 +22,7 @@ function App() {
         }}
       >
         <Routes>
-          <Route path="/" element={<Register />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           {/* <Route path="*" element={<Error />} /> */}

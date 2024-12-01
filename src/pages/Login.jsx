@@ -2,11 +2,9 @@ import logo from "../images/logo.jpg";
 
 export default function Login() {
   return (
-    <div className="flex flex-row min-h-[calc(100vh_-_60px)]">
+    <div className="flex flex-row min-h-screen">
       <div className="flex w-full">
-
         <div className="min-h-full w-2/5 bg-[#1A1F7D] flex flex-col pb-10 px-8">
-
           <div className="p-7 flex gap-4">
             <img
               src={logo}
@@ -71,11 +69,10 @@ export default function Login() {
                 </button>
               </div>
             </form>
-            <a href="/" className="text-blue-700 underline">
+            <a href="/register" className="text-blue-700 underline">
               Create account
             </a>
           </div>
-
         </div>
 
         <div
@@ -94,9 +91,7 @@ export default function Login() {
           </h2>
           <img src={logo} alt="DC" className="rounded-full h-60 w-60" />
         </div>
-
       </div>
-
     </div>
   );
 }
