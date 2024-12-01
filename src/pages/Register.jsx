@@ -1,8 +1,16 @@
 import logo from "../images/logo.jpg";
+import coverPage from "../images/coverPage.jpg";
 
 export default function Register() {
   return (
-    <div className="flex flex-row min-h-screen">
+    <div
+      className="flex flex-row min-h-screen"
+      style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${coverPage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+      }}
+    >
       <div className="flex w-full justify-center">
         <div className="min-h-full w-1/2 pb-10 flex flex-col justify-center items-center flex-grow ml-[4em]">
           <h2 className="text-white font-bold text-2xl mb-8 text-center">
@@ -21,7 +29,7 @@ export default function Register() {
           style={{ clipPath: "polygon(100% 100%, 0% 100%, 50% 50%, 100% 0%)" }}
         ></div>
 
-        <div className="min-h-full w-1/2 bg-[#1A1F7D] flex flex-col pb-10 px-8">
+        <div className="min-h-full w-2/5 bg-[#1A1F7D] flex flex-col pb-10 px-8">
           <div className="p-7 flex gap-4">
             <img
               src={logo}

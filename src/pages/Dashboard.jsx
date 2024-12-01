@@ -10,9 +10,9 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex min-h-[calc(100vh_-_68px)]">
       {/* Left Column (25%) */}
-      <div className="w-1/4 bg-[#1A1F7D] p-4">
+      <div className="w-[300px] bg-[#1A1F7D] p-4">
         <h2 className="text-white text-lg">Easy Access</h2>
         <div className="flex gap-3 p-2">
           <div className="flex flex-col justify-center w-fit">
@@ -54,8 +54,8 @@ const Dashboard = () => {
 
       {/* Middle Column (75% or 100% when right column is hidden) */}
       <div
-        className={`w-3/4 bg-[#e1e7ed] p-4 ${
-          !isRightColumnVisible ? "w-3/4" : "w-[55%]"
+        className={` bg-[#e1e7ed] p-4 ${
+          !isRightColumnVisible ? "flex-grow" : "flex-grow"
         }`}
       >
         {/* toggle button */}
@@ -90,7 +90,7 @@ const Dashboard = () => {
 
       {/* Right Column (20%) */}
       <div
-        className={`w-1/5 bg-[#1A1F7D] p-4 ${
+        className={`w-[250px] bg-[#1A1F7D] p-4 ${
           isRightColumnVisible ? "block" : "hidden"
         } block`}
       >

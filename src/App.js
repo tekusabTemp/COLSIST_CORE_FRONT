@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import coverPage from "./images/coverPage.jpg";
 
 // import { UserProvider } from "./UserContext";
 import NavBar from "./components/Navbar";
@@ -13,14 +12,7 @@ function App() {
     // <UserProvider value={{ user, setUser, unsetUser }}>
     <Router>
       <NavBar />
-      <div
-        className="bg-sky-200 min-h-screen"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${coverPage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center"
-        }}
-      >
+      <div>
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
