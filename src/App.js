@@ -11,7 +11,7 @@ function App() {
   return (
     // <UserProvider value={{ user, setUser, unsetUser }}>
     <Router>
-      <NavBar />
+      {/* <NavBar /> */}
       <div
         className="bg-sky-200 min-h-[calc(100vh_-_60px)]"
         style={{
