@@ -6,12 +6,13 @@ import coverPage from "./images/coverPage.jpg";
 import NavBar from "./components/Navbar";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
     // <UserProvider value={{ user, setUser, unsetUser }}>
     <Router>
-      {/* <NavBar /> */}
+      <NavBar />
       <div
         className="bg-sky-200 min-h-[calc(100vh_-_60px)]"
         style={{
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           {/* <Route path="*" element={<Error />} /> */}
         </Routes>
       </div>
