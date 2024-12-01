@@ -92,7 +92,6 @@ const Dashboard = () => {
             <span className="text-xs">Main Module</span>
           </div>
         </div>
-
         <h2 className="text-white text-lg mt-5">My Tools</h2>
         <ul className="menu  rounded-box w-full">
           <li>
@@ -164,33 +163,60 @@ const Dashboard = () => {
 
       {/* Right Column (20%) */}
       <div
-        className={`w-[250px] bg-[#1A1F7D] p-4 ${
+        className={`w-[250px] bg-[#1A1F7D] px-4 pt-3 flex flex-col gap-2 ${
           isRightColumnVisible ? "block" : "hidden"
         } block`}
       >
-        <div className="flex justify-end">
-          <button
-            onClick={toggleRightColumn}
-            className=" text-white p-2 rounded-md mg:hidden"
-          >
-            {isRightColumnVisible ? "Hide" : "Show"}
-          </button>
+        {/* Top part */}
+        <div className="flex-grow flex flex-col gap-2">
+          <div className="flex justify-end">
+            <button
+              onClick={toggleRightColumn}
+              className=" text-white p-2 rounded-md mg:hidden"
+            >
+              {isRightColumnVisible ? "Hide" : "Show"}
+            </button>
+          </div>
+          <details className="collapse bg-base-200 text-sm" open>
+            <summary className="collapse-title text-lg font-medium">
+              Progress
+            </summary>
+            <div className="collapse-content">
+              <p>
+                <ul className="steps steps-vertical">
+                  <li className="step step-primary">Register</li>
+                  <li className="step step-primary">Choose plan</li>
+                  <li className="step">Purchase</li>
+                  <li className="step">Receive Product</li>
+                </ul>
+              </p>
+            </div>
+          </details>
+
+          <details className="collapse bg-base-200 text-sm" open>
+            <summary className="collapse-title text-lg font-medium">
+              Guiding Bees
+            </summary>
+            <div className="collapse-content">
+              <p>
+                <label className="swap swap-flip text-9xl">
+                  {/* this hidden checkbox controls the state */}
+                  <input type="checkbox" />
+
+                  <div className="swap-on">😁</div>
+                  <div className="swap-off">🐝</div>
+                </label>
+              </p>
+            </div>
+          </details>
         </div>
 
-        <div className="bg-[#e1e7ed] rounded p-4 min-h-[40%] mb-4">
-          <h1 className="text-black text-2xl">Progress</h1>
-        </div>
-
-        <div className="bg-[#e1e7ed] rounded p-4 min-h-[30%] mb-4">
-          <h1 className="text-black text-2xl">Guiding Bees</h1>
-        </div>
-
-        <div className="bg-[#e8a9aa] rounded p-2 min-h-[10%] flex flex-col">
-          <span className="text-center text-black text-2xl font-bold">
+        <div className="bg-gray-800 rounded-t-2xl rounded-b-none p-2  flex flex-col">
+          <span className="text-center text-white text-2xl font-bold">
             12:00 PM
           </span>
-          <span className="text-center text-black text-lg font-bold">
-            Jan 01, 2024
+          <span className="text-center text-white text-lg font-bold">
+            2024-12-01 | Sun
           </span>
         </div>
       </div>

@@ -42,9 +42,11 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-3xl">DILIMAN</a>
+        <a className="btn btn-ghost text-2xl w-[280px] flex justify-start">
+          DILIMAN
+        </a>
 
-        <div className="ml-auto navbar-start hidden lg:flex w-9/12">
+        <div className=" navbar-start hidden lg:flex w-9/12">
           <ul className="menu menu-horizontal px-1 w-full">
             <li>
               <a href="/home">Home</a>
