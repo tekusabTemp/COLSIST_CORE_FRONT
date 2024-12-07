@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
+import GradingSystem from "../components/dashboard/GradingSystem";
+import GradingSystemBanner from "../components/dashboard/banner/GradingSystemBanner";
 
 const Dashboard = () => {
+
+  const [gradingSystem, setGradingSystem] = useState(false);
+
   const [time, setTime] = useState({
     hours: "00",
     minutes: "00",
@@ -181,17 +186,17 @@ const Dashboard = () => {
           </button>
         </div>
 
-        <div className="flex flex-col rounded-3xl overflow-hidden flex-grow">
-          <div className="bg-[#8186e9] min-h-[50%] p-4 flex flex-col justify-end items-start">
-            <p className="text-black mt-auto">GRADING SYSTEM</p>
-            <h2 className="text-black text-3xl font-bold">Grading System</h2>
-          </div>
-          <div className="bg-white min-h-[30%] p-4 flex-grow">
-            <p className="text-black">What does this do?</p>
-          </div>
+        <div className="flex flex-col flex-grow rounded-3xl overflow-auto">
+          {
+            gradingSystem === true ? 
+            <GradingSystem />
+            :
+            <GradingSystemBanner />
+          }
+          
         </div>
         <div className="p-4 flex flex-end">
-          <button className="w-[100px] font-bold bg-white text-black p-2 rounded ml-auto">
+          <button className="w-[100px] font-bold bg-white text-black p-2 rounded ml-auto" onClick={() => setGradingSystem(true)}>
             Start
           </button>
         </div>
@@ -262,6 +267,7 @@ const Dashboard = () => {
           </span>
         </div>
       </div>
+
     </div>
   );
 };
